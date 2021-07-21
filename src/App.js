@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import React, {Fragment} from "react";
+import {Route, Switch, Redirect} from 'react-router-dom'
+import Login from './Component/Login';
+import Dashboard from "./Component/Dashboard";
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <Fragment>
+          <h1 className="header">Welcome to Appiness Interactive</h1>
+          <Switch>
+            <Route exact path='/' component={Login} />
+            <Route exact path='/dashboard' component={Dashboard} />
+            <Redirect from="*" to='/dashboard' />
+          </Switch>
+        </Fragment>  
   );
 }
+
 
 export default App;
